@@ -9,6 +9,7 @@ const TodoForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addNewTodo(text));
+    setText("");
   };
   const handleChange = (e) => {
     setText(e.target.value);
@@ -19,6 +20,7 @@ const TodoForm = () => {
         placeholder="Enter new todo..."
         className="input"
         onChange={handleChange}
+        value={text}
       />
     </form>
   );

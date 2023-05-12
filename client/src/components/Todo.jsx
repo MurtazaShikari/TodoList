@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faPen } from "@fortawesome/free-solid-svg-icons";
-import { toggleTodo } from "../redux/actions";
+import { toggleTodo, updateTodo, deleteTodo } from "../redux/actions";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
@@ -8,6 +8,14 @@ const Todo = ({ todo }) => {
   const dispatch = useDispatch();
   const [editing, setEditing] = useState(false);
   const [text, setText] = useState(todo.data);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setEditing((prevState) => !prevState);
+
+    dispatch(updateTodo(todo._id, text));
+  };
   return (
     <li
       className="task"
@@ -28,15 +36,16 @@ const Todo = ({ todo }) => {
         style={{
           display: editing ? "inline" : "none",
         }}
+        onSubmit={handleSubmit}
       >
         <input
           type="text"
           value={text}
           className="edit-todo"
-          onChange={() => setText(e.target.value)}
+          onChange={(e) => setText(e.target.value)}
         />
       </form>
-      <span className="icon">
+      <span className="icon" onClick={() => dispatch(deleteTodo(todo._id))}>
         <FontAwesomeIcon icon={faTrashCan} />
       </span>
       <span

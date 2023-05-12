@@ -43,7 +43,15 @@ export const updateTodo = async (request, response) => {
       { data: request.body.data }
     );
 
-    const todo = await Todo.findById(request.params.id)
+    const todo = await Todo.findById(request.params.id);
+    return response.status(200).json(todo);
+  } catch (err) {
+    return response.status(500).json(console.err.message);
+  }
+};
+export const deleteTodo = async (request, response) => {
+  try {
+    const todo = await Todo.findByIdAndDelete(request.params.id);
     return response.status(200).json(todo);
   } catch (err) {
     return response.status(500).json(console.err.message);

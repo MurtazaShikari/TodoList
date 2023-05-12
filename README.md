@@ -4,8 +4,8 @@ It is fullstack todo app built using ReactJS and Redux on the Frontend. For the 
 
 # Client Side
 
-cd client
-npm i
+-cd client
+-npm i
 
 # To start the client
 
@@ -13,12 +13,12 @@ npm run dev
 
 # Server Side
 
-cd server
-npm i
+-cd server
+-npm i
 
 Also add .env file in the server root directory which will contain username and password from MongoDB:
-DB_USERNAME={YOUR USERNAME}
-DB_PASSWORD={YOUR PASSWORD}
+-DB_USERNAME={YOUR USERNAME}
+-DB_PASSWORD={YOUR PASSWORD}
 
 # To start the server
 

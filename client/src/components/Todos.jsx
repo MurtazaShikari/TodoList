@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { deleteTodo, getAllTodos } from "../redux/actions/index";
 import { ALL_TODOS, DONE_TODOS, ACTIVE_TODOS } from "../redux/actions/type";
 import { useDispatch, useSelector } from "react-redux";
+import Zoom from "react-reveal/Zoom";
 import Todo from "./Todo";
 import Tabs from "./Tabs";
 
@@ -35,19 +36,23 @@ export const Todos = () => {
 
   return (
     <article>
-      <div>
-        <Tabs currentTab={currentTab} />
-        {todos.some((todo) => todo.done) ? (
-          <button onClick={removeDoneTodos} className="button clear">
-            Remove Done Todos
-          </button>
-        ) : null}
-      </div>
-      <ul>
-        {getTodo().map((todo, key) => (
-          <Todo todo={todo} key={key} id={todo._id} />
-        ))}
-      </ul>
+      <Zoom>
+        <div>
+          <Tabs currentTab={currentTab} />
+          {todos.some((todo) => todo.done) ? (
+            <Zoom>
+              <button onClick={removeDoneTodos} className="button clear">
+                Remove Done Todos
+              </button>
+            </Zoom>
+          ) : null}
+        </div>
+        <ul>
+          {getTodo().map((todo, key) => (
+            <Todo todo={todo} key={key} id={todo._id} />
+          ))}
+        </ul>
+      </Zoom>
     </article>
   );
 };

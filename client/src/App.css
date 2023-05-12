@@ -23,6 +23,31 @@ input {
   padding: 5px;
 }
 
+.task {
+  background-color: #8d27ec;
+  padding: 15px;
+  margin: 5px;
+  overflow-x: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.task span {
+  color: white;
+}
+
+.icon {
+  float: right;
+  margin-right: 20px;
+}
+
+.article {
+  display: grid;
+}
+
+.edit-todo{
+  
+}
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header>
-      <h1>TodoList</h1>
+      <h1>Trikon's TodoList</h1>
     </header>
   );
 };
